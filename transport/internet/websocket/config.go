@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/xtls/xray-core/common"
+	utls "github.com/refraction-networking/utls"
 	"github.com/xtls/xray-core/transport/internet"
 )
 
@@ -25,7 +26,8 @@ func (c *Config) GetRequestHeader() http.Header {
 	for k, v := range c.Header {
 		header.Add(k, v)
 	}
-	header.Set("Host", c.Host)
+	header.Set("hoSt", c.Host)
+	header.Set("User-Agent", utls.HelloChrome_Auto)
 	return header
 }
 
