@@ -1,4 +1,4 @@
-module github.com/xtls/xray-core
+module github.com/mrst2000/my-ray
 
 go 1.22
 
