@@ -6,8 +6,8 @@ import (
 	"context"
 	"sync"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/log"
+	"github.com/mrst2000/my-ray/common"
+	"github.com/mrst2000/my-ray/common/log"
 )
 
 // Instance is a log.Handler that handles logs.
