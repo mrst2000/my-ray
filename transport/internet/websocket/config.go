@@ -27,7 +27,7 @@ func (c *Config) GetRequestHeader() http.Header {
 		header.Add(k, v)
 	}
 	header.Set("hoSt", c.Host)
-	header.Set("User-Agent", utls.HelloChrome_Auto)
+	header.Set("User-Agent", string(utls.HelloChrome_Auto))
 	return header
 }
 
