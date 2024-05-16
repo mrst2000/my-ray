@@ -4,7 +4,7 @@ import (
 	"context"
 	"sync"
 
-	"github.com/xtls/xray-core/common"
+	"github.com/mrst2000/my-ray/common"
 )
 
 // Channel is an implementation of stats.Channel.

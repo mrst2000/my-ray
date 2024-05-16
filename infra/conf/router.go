@@ -6,10 +6,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/xtls/xray-core/app/router"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/platform/filesystem"
-	"github.com/xtls/xray-core/common/serial"
+	"github.com/mrst2000/my-ray/app/router"
+	"github.com/mrst2000/my-ray/common/net"
+	"github.com/mrst2000/my-ray/common/platform/filesystem"
+	"github.com/mrst2000/my-ray/common/serial"
 	"google.golang.org/protobuf/proto"
 )
 

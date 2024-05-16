@@ -1,6 +1,6 @@
 package inbound
 
-//go:generate go run github.com/xtls/xray-core/common/errors/errorgen
+//go:generate go run github.com/mrst2000/my-ray/common/errors/errorgen
 
 import (
 	"bytes"
@@ -13,27 +13,27 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/log"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/protocol"
-	"github.com/xtls/xray-core/common/retry"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/common/signal"
-	"github.com/xtls/xray-core/common/task"
-	"github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/features/dns"
-	feature_inbound "github.com/xtls/xray-core/features/inbound"
-	"github.com/xtls/xray-core/features/policy"
-	"github.com/xtls/xray-core/features/routing"
-	"github.com/xtls/xray-core/proxy"
-	"github.com/xtls/xray-core/proxy/vless"
-	"github.com/xtls/xray-core/proxy/vless/encoding"
-	"github.com/xtls/xray-core/transport/internet/reality"
-	"github.com/xtls/xray-core/transport/internet/stat"
-	"github.com/xtls/xray-core/transport/internet/tls"
+	"github.com/mrst2000/my-ray/common"
+	"github.com/mrst2000/my-ray/common/buf"
+	"github.com/mrst2000/my-ray/common/errors"
+	"github.com/mrst2000/my-ray/common/log"
+	"github.com/mrst2000/my-ray/common/net"
+	"github.com/mrst2000/my-ray/common/protocol"
+	"github.com/mrst2000/my-ray/common/retry"
+	"github.com/mrst2000/my-ray/common/session"
+	"github.com/mrst2000/my-ray/common/signal"
+	"github.com/mrst2000/my-ray/common/task"
+	"github.com/mrst2000/my-ray/core"
+	"github.com/mrst2000/my-ray/features/dns"
+	feature_inbound "github.com/mrst2000/my-ray/features/inbound"
+	"github.com/mrst2000/my-ray/features/policy"
+	"github.com/mrst2000/my-ray/features/routing"
+	"github.com/mrst2000/my-ray/proxy"
+	"github.com/mrst2000/my-ray/proxy/vless"
+	"github.com/mrst2000/my-ray/proxy/vless/encoding"
+	"github.com/mrst2000/my-ray/transport/internet/reality"
+	"github.com/mrst2000/my-ray/transport/internet/stat"
+	"github.com/mrst2000/my-ray/transport/internet/tls"
 )
 
 func init() {

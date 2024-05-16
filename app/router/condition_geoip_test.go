@@ -5,11 +5,11 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/xtls/xray-core/app/router"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/platform"
-	"github.com/xtls/xray-core/common/platform/filesystem"
+	"github.com/mrst2000/my-ray/app/router"
+	"github.com/mrst2000/my-ray/common"
+	"github.com/mrst2000/my-ray/common/net"
+	"github.com/mrst2000/my-ray/common/platform"
+	"github.com/mrst2000/my-ray/common/platform/filesystem"
 	"google.golang.org/protobuf/proto"
 )
 

@@ -11,13 +11,13 @@ import (
 	"github.com/sagernet/sing/common/bufio"
 	N "github.com/sagernet/sing/common/network"
 	"github.com/sagernet/sing/common/uot"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/common/singbridge"
-	"github.com/xtls/xray-core/transport"
-	"github.com/xtls/xray-core/transport/internet"
+	"github.com/mrst2000/my-ray/common"
+	"github.com/mrst2000/my-ray/common/buf"
+	"github.com/mrst2000/my-ray/common/net"
+	"github.com/mrst2000/my-ray/common/session"
+	"github.com/mrst2000/my-ray/common/singbridge"
+	"github.com/mrst2000/my-ray/transport"
+	"github.com/mrst2000/my-ray/transport/internet"
 )
 
 func init() {

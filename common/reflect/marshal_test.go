@@ -6,9 +6,9 @@ import (
 	"strings"
 	"testing"
 
-	. "github.com/xtls/xray-core/common/reflect"
-	cserial "github.com/xtls/xray-core/common/serial"
-	iserial "github.com/xtls/xray-core/infra/conf/serial"
+	. "github.com/mrst2000/my-ray/common/reflect"
+	cserial "github.com/mrst2000/my-ray/common/serial"
+	iserial "github.com/mrst2000/my-ray/infra/conf/serial"
 )
 
 func TestMashalStruct(t *testing.T) {

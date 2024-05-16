@@ -6,11 +6,11 @@ import (
 	"sort"
 	"time"
 
-	"github.com/xtls/xray-core/app/observatory"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/dice"
-	"github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/features/extension"
+	"github.com/mrst2000/my-ray/app/observatory"
+	"github.com/mrst2000/my-ray/common"
+	"github.com/mrst2000/my-ray/common/dice"
+	"github.com/mrst2000/my-ray/core"
+	"github.com/mrst2000/my-ray/features/extension"
 )
 
 // LeastLoadStrategy represents a least load balancing strategy

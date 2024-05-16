@@ -3,8 +3,8 @@ package all
 import (
 	"fmt"
 
-	"github.com/xtls/xray-core/common/uuid"
-	"github.com/xtls/xray-core/main/commands/base"
+	"github.com/mrst2000/my-ray/common/uuid"
+	"github.com/mrst2000/my-ray/main/commands/base"
 )
 
 var cmdUUID = &base.Command{

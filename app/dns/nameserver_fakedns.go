@@ -3,9 +3,9 @@ package dns
 import (
 	"context"
 
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/features/dns"
+	"github.com/mrst2000/my-ray/common/net"
+	"github.com/mrst2000/my-ray/core"
+	"github.com/mrst2000/my-ray/features/dns"
 )
 
 type FakeDNSServer struct {

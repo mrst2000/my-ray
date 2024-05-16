@@ -6,10 +6,10 @@ import (
 	"time"
 
 	"github.com/sagernet/sing/common/control"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/features/dns"
-	"github.com/xtls/xray-core/features/outbound"
+	"github.com/mrst2000/my-ray/common/net"
+	"github.com/mrst2000/my-ray/common/session"
+	"github.com/mrst2000/my-ray/features/dns"
+	"github.com/mrst2000/my-ray/features/outbound"
 )
 
 var effectiveSystemDialer SystemDialer = &DefaultSystemDialer{}

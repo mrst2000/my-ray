@@ -3,9 +3,9 @@ package outbound
 import (
 	"context"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/features"
-	"github.com/xtls/xray-core/transport"
+	"github.com/mrst2000/my-ray/common"
+	"github.com/mrst2000/my-ray/features"
+	"github.com/mrst2000/my-ray/transport"
 )
 
 // Handler is the interface for handlers that process outbound connections.

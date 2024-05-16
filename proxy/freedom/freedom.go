@@ -1,6 +1,6 @@
 package freedom
 
-//go:generate go run github.com/xtls/xray-core/common/errors/errorgen
+//go:generate go run github.com/mrst2000/my-ray/common/errors/errorgen
 
 import (
 	"context"
@@ -10,23 +10,23 @@ import (
 	"time"
 
 	"github.com/pires/go-proxyproto"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/dice"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/platform"
-	"github.com/xtls/xray-core/common/retry"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/common/signal"
-	"github.com/xtls/xray-core/common/task"
-	"github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/features/dns"
-	"github.com/xtls/xray-core/features/policy"
-	"github.com/xtls/xray-core/features/stats"
-	"github.com/xtls/xray-core/proxy"
-	"github.com/xtls/xray-core/transport"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/stat"
+	"github.com/mrst2000/my-ray/common"
+	"github.com/mrst2000/my-ray/common/buf"
+	"github.com/mrst2000/my-ray/common/dice"
+	"github.com/mrst2000/my-ray/common/net"
+	"github.com/mrst2000/my-ray/common/platform"
+	"github.com/mrst2000/my-ray/common/retry"
+	"github.com/mrst2000/my-ray/common/session"
+	"github.com/mrst2000/my-ray/common/signal"
+	"github.com/mrst2000/my-ray/common/task"
+	"github.com/mrst2000/my-ray/core"
+	"github.com/mrst2000/my-ray/features/dns"
+	"github.com/mrst2000/my-ray/features/policy"
+	"github.com/mrst2000/my-ray/features/stats"
+	"github.com/mrst2000/my-ray/proxy"
+	"github.com/mrst2000/my-ray/transport"
+	"github.com/mrst2000/my-ray/transport/internet"
+	"github.com/mrst2000/my-ray/transport/internet/stat"
 )
 
 var useSplice bool
@@ -426,7 +426,7 @@ func (f *FragmentWriter) Write(b []byte) (int, error) {
 	}
 }
 
-// stolen from github.com/xtls/xray-core/transport/internet/reality
+// stolen from github.com/mrst2000/my-ray/transport/internet/reality
 func randBetween(left int64, right int64) int64 {
 	if left == right {
 		return left

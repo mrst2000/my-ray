@@ -5,8 +5,8 @@ import (
 	"encoding/binary"
 	"errors"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/dice"
+	"github.com/mrst2000/my-ray/common"
+	"github.com/mrst2000/my-ray/common/dice"
 )
 
 type DNS struct {

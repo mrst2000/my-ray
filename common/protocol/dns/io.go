@@ -4,9 +4,9 @@ import (
 	"encoding/binary"
 	"sync"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/serial"
+	"github.com/mrst2000/my-ray/common"
+	"github.com/mrst2000/my-ray/common/buf"
+	"github.com/mrst2000/my-ray/common/serial"
 	"golang.org/x/net/dns/dnsmessage"
 )
 

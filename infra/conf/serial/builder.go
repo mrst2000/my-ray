@@ -3,10 +3,10 @@ package serial
 import (
 	"io"
 
-	creflect "github.com/xtls/xray-core/common/reflect"
-	"github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/infra/conf"
-	"github.com/xtls/xray-core/main/confloader"
+	creflect "github.com/mrst2000/my-ray/common/reflect"
+	"github.com/mrst2000/my-ray/core"
+	"github.com/mrst2000/my-ray/infra/conf"
+	"github.com/mrst2000/my-ray/main/confloader"
 )
 
 func MergeConfigFromFiles(files []string, formats []string) (string, error) {

@@ -4,7 +4,7 @@ import (
 	"crypto/cipher"
 	"testing"
 
-	. "github.com/xtls/xray-core/common/crypto"
+	. "github.com/mrst2000/my-ray/common/crypto"
 )
 
 const benchSize = 1024 * 1024

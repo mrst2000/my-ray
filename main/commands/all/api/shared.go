@@ -15,8 +15,8 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/protobuf/encoding/protojson"
 
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/main/commands/base"
+	"github.com/mrst2000/my-ray/common/buf"
+	"github.com/mrst2000/my-ray/main/commands/base"
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/proto"
 )

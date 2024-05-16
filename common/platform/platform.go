@@ -1,4 +1,4 @@
-package platform // import "github.com/xtls/xray-core/common/platform"
+package platform // import "github.com/mrst2000/my-ray/common/platform"
 
 import (
 	"os"

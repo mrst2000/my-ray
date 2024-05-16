@@ -1,17 +1,17 @@
 package command
 
-//go:generate go run github.com/xtls/xray-core/common/errors/errorgen
+//go:generate go run github.com/mrst2000/my-ray/common/errors/errorgen
 
 import (
 	"context"
 	"runtime"
 	"time"
 
-	"github.com/xtls/xray-core/app/stats"
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/strmatcher"
-	"github.com/xtls/xray-core/core"
-	feature_stats "github.com/xtls/xray-core/features/stats"
+	"github.com/mrst2000/my-ray/app/stats"
+	"github.com/mrst2000/my-ray/common"
+	"github.com/mrst2000/my-ray/common/strmatcher"
+	"github.com/mrst2000/my-ray/core"
+	feature_stats "github.com/mrst2000/my-ray/features/stats"
 	grpc "google.golang.org/grpc"
 )
 

@@ -1,6 +1,6 @@
 package outbound
 
-//go:generate go run github.com/xtls/xray-core/common/errors/errorgen
+//go:generate go run github.com/mrst2000/my-ray/common/errors/errorgen
 
 import (
 	"context"
@@ -9,23 +9,23 @@ import (
 	"hash/crc64"
 	"time"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/buf"
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/platform"
-	"github.com/xtls/xray-core/common/protocol"
-	"github.com/xtls/xray-core/common/retry"
-	"github.com/xtls/xray-core/common/session"
-	"github.com/xtls/xray-core/common/signal"
-	"github.com/xtls/xray-core/common/task"
-	"github.com/xtls/xray-core/common/xudp"
-	core "github.com/xtls/xray-core/core"
-	"github.com/xtls/xray-core/features/policy"
-	"github.com/xtls/xray-core/proxy/vmess"
-	"github.com/xtls/xray-core/proxy/vmess/encoding"
-	"github.com/xtls/xray-core/transport"
-	"github.com/xtls/xray-core/transport/internet"
-	"github.com/xtls/xray-core/transport/internet/stat"
+	"github.com/mrst2000/my-ray/common"
+	"github.com/mrst2000/my-ray/common/buf"
+	"github.com/mrst2000/my-ray/common/net"
+	"github.com/mrst2000/my-ray/common/platform"
+	"github.com/mrst2000/my-ray/common/protocol"
+	"github.com/mrst2000/my-ray/common/retry"
+	"github.com/mrst2000/my-ray/common/session"
+	"github.com/mrst2000/my-ray/common/signal"
+	"github.com/mrst2000/my-ray/common/task"
+	"github.com/mrst2000/my-ray/common/xudp"
+	core "github.com/mrst2000/my-ray/core"
+	"github.com/mrst2000/my-ray/features/policy"
+	"github.com/mrst2000/my-ray/proxy/vmess"
+	"github.com/mrst2000/my-ray/proxy/vmess/encoding"
+	"github.com/mrst2000/my-ray/transport"
+	"github.com/mrst2000/my-ray/transport/internet"
+	"github.com/mrst2000/my-ray/transport/internet/stat"
 )
 
 // Handler is an outbound connection handler for VMess protocol.

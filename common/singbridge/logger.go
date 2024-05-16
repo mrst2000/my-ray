@@ -4,8 +4,8 @@ import (
 	"context"
 
 	"github.com/sagernet/sing/common/logger"
-	"github.com/xtls/xray-core/common/errors"
-	"github.com/xtls/xray-core/common/session"
+	"github.com/mrst2000/my-ray/common/errors"
+	"github.com/mrst2000/my-ray/common/session"
 )
 
 var _ logger.ContextLogger = (*XrayLogger)(nil)

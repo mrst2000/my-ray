@@ -10,11 +10,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/xtls/xray-core/common/net"
-	"github.com/xtls/xray-core/common/ocsp"
-	"github.com/xtls/xray-core/common/platform/filesystem"
-	"github.com/xtls/xray-core/common/protocol/tls/cert"
-	"github.com/xtls/xray-core/transport/internet"
+	"github.com/mrst2000/my-ray/common/net"
+	"github.com/mrst2000/my-ray/common/ocsp"
+	"github.com/mrst2000/my-ray/common/platform/filesystem"
+	"github.com/mrst2000/my-ray/common/protocol/tls/cert"
+	"github.com/mrst2000/my-ray/transport/internet"
 )
 
 var globalSessionCache = tls.NewLRUClientSessionCache(128)

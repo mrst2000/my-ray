@@ -1,7 +1,7 @@
 package global
 
 import (
-	"github.com/xtls/xray-core/transport/internet"
+	"github.com/mrst2000/my-ray/transport/internet"
 )
 
 // Apply applies this Config.

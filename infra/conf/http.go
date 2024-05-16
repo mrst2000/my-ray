@@ -3,9 +3,9 @@ package conf
 import (
 	"encoding/json"
 
-	"github.com/xtls/xray-core/common/protocol"
-	"github.com/xtls/xray-core/common/serial"
-	"github.com/xtls/xray-core/proxy/http"
+	"github.com/mrst2000/my-ray/common/protocol"
+	"github.com/mrst2000/my-ray/common/serial"
+	"github.com/mrst2000/my-ray/proxy/http"
 	"google.golang.org/protobuf/proto"
 )
 

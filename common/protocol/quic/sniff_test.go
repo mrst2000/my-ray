@@ -4,8 +4,8 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/xtls/xray-core/common"
-	"github.com/xtls/xray-core/common/protocol/quic"
+	"github.com/mrst2000/my-ray/common"
+	"github.com/mrst2000/my-ray/common/protocol/quic"
 )
 
 func TestSniffQUIC(t *testing.T) {
