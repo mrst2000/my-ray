@@ -12,25 +12,6 @@ import (
 
 const protocolName = "websocket"
 
-func main() {
-	myConfig := &MyConfig{
-		Header: map[string]string{
-			"Content-Type": "application/json",
-			"Authorization": "Bearer token",
-		},
-		Host: "example.com",
-	}
-
-	header := myConfig.GetRequestHeader()
-	// Modify the header map
-	header["hoSt"] = header["Host"]
-	delete(header, "Host")
-}
-
-type MyConfig struct {
-	Header map[string]string
-	Host   string
-}
 
 func (c *Config) GetNormalizedPath() string {
 	path := c.Path
