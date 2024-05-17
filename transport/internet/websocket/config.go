@@ -2,7 +2,6 @@ package websocket
 
 import (
 	"net/http"
-	"fmt"
 	"time"
 	"unicode"
 	"math/rand"
