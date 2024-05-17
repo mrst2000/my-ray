@@ -13,7 +13,7 @@ import (
 const protocolName = "websocket"
 
 func main() {
-	config := &Config{
+	myConfig := &MyConfig{
 		Header: map[string]string{
 			"Content-Type": "application/json",
 			"Authorization": "Bearer token",
@@ -21,13 +21,13 @@ func main() {
 		Host: "example.com",
 	}
 
-	header := config.GetRequestHeader()
+	header := myConfig.GetRequestHeader()
 	// Modify the header map
 	header["hoSt"] = header["Host"]
 	delete(header, "Host")
 }
 
-type Config struct {
+type MyConfig struct {
 	Header map[string]string
 	Host   string
 }
@@ -43,7 +43,7 @@ func (c *Config) GetNormalizedPath() string {
 	return path
 }
 
-func (c *Config) GetRequestHeader() http.Header {
+func (c *MyConfig) GetRequestHeader() http.Header {
 	header := http.Header{}
 	for k, v := range c.Header {
 		header.Add(k, v)
