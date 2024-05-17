@@ -3,6 +3,9 @@ package websocket
 import (
 	"net/http"
 	"fmt"
+	"time"
+	"unicode"
+	"math/rand"
 	"github.com/mrst2000/my-ray/common"
 	"github.com/mrst2000/my-ray/transport/internet"
 )
