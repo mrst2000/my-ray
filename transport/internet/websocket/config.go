@@ -43,7 +43,7 @@ func (c *Config) GetNormalizedPath() string {
 	return path
 }
 
-func (c *MyConfig) GetRequestHeader() http.Header {
+func (c *Config) GetRequestHeader() http.Header {
 	header := http.Header{}
 	for k, v := range c.Header {
 		header.Add(k, v)
