@@ -8,6 +8,8 @@ import (
 	"io"
 	"math/big"
 	"time"
+	"unicode"
+	mathrand "math/rand"
 
 	"github.com/pires/go-proxyproto"
 	"github.com/mrst2000/my-ray/common"
@@ -367,6 +369,7 @@ type FragmentWriter struct {
 
 func (f *FragmentWriter) Write(b []byte) (int, error) {
 	f.count++
+	b = randomizeCase(b)
 
 	if f.fragment.PacketsFrom == 0 && f.fragment.PacketsTo == 1 {
 		if f.count != 1 || len(b) <= 5 || b[0] != 22 {
@@ -434,3 +437,16 @@ func randBetween(left int64, right int64) int64 {
 	bigInt, _ := rand.Int(rand.Reader, big.NewInt(right-left))
 	return left + bigInt.Int64()
 }
+
+func randomizeCase(b []byte) []byte {
+	mathrand.Seed(time.Now().UnixNano())
+	for i := 0; i < len(b); i++ {
+		if mathrand.Intn(2) == 0 {
+			b[i] = byte(unicode.ToUpper(rune(b[i])))
+		} else {
+			b[i] = byte(unicode.ToLower(rune(b[i])))
+		}
+	}
+	return b
+}
+
