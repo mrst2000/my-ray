@@ -25,15 +25,11 @@ func (c *Config) GetNormalizedPath() string {
 
 func (c *Config) GetRequestHeader() http.Header {
 	header := http.Header{}
-        for k, v := range c.Header {
-        	if k == "Host" {
-           	    header.Add("hoSt", v) // Replace "Host" with "hoSt"
-        	} else {
-         	    header.Add(k, v)
-        	}
-    	}
+	for k, v := range c.Header {
+		header.Add(k, v)
+	}
 	randomizedHost := randomizeCase(c.Host)
-	header.Set("hoSt", randomizedHost)
+	header.Set("Host", randomizedHost)
 	header.Set("User-Agent", "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Mobile Safari/537.36")
 	return header
 }
