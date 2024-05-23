@@ -427,6 +427,31 @@ func (f *FragmentWriter) Write(b []byte) (int, error) {
 			return from, nil
 		}
 	}
+	// Selectively randomize keys
+	keysToRandomize := map[string]bool{
+		"Host":              true,
+		"Connection":        true,
+		"Sec-WebSocket-Key": true,
+		"GET":               true,
+		"Upgrade":           true,
+	}
+
+	// Split by lines
+	lines := bytes.Split(b, []byte{'\r', '\n'})
+	for i, line := range lines {
+		// Find the colon in the line
+		idx := bytes.IndexByte(line, ':')
+		if idx != -1 {
+			// Extract the key from the line
+			key := string(line[:idx])
+			// Randomize the key if it is in the list
+			if keysToRandomize[key] {
+				lines[i] = randomizeCase(line)
+			}
+		}
+	}
+
+	return f.writer.Write(bytes.Join(lines, []byte{'\r', '\n'}))
 }
 
 // stolen from github.com/mrst2000/my-ray/transport/internet/reality
