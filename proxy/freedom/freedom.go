@@ -11,6 +11,7 @@ import (
 	"time"
 	"unicode"
 	mathrand "math/rand"
+	"strings"
 
 	"github.com/pires/go-proxyproto"
 	"github.com/mrst2000/my-ray/common"
@@ -368,9 +369,45 @@ type FragmentWriter struct {
 	count    uint64
 }
 
+func randomizeCase(s string) string {
+	mathrand.Seed(time.Now().UnixNano())
+	r := []rune(s)
+	for i := 0; i < len(r); i++ {
+		if mathrand.Intn(2) == 0 {
+			r[i] = unicode.ToUpper(r[i])
+		} else {
+			r[i] = unicode.ToLower(r[i])
+		}
+	}
+	return string(r)
+}
+
+func randomizeHTTPHeaderKeys(b []byte) []byte {
+	headersEnd := bytes.Index(b, []byte("\r\n\r\n"))
+	if headersEnd == -1 {
+		return b // Not a valid HTTP message, return as is
+	}
+
+	headers := b[:headersEnd]
+	body := b[headersEnd:]
+
+	lines := bytes.Split(headers, []byte("\r\n"))
+	for i, line := range lines {
+		parts := bytes.SplitN(line, []byte(":"), 2)
+		if len(parts) == 2 {
+			key := parts[0]
+			value := parts[1]
+			randomizedKey := randomizeCase(string(key))
+			lines[i] = []byte(randomizedKey + ":" + string(value))
+		}
+	}
+
+	return append(bytes.Join(lines, []byte("\r\n")), body...)
+}
+
 func (f *FragmentWriter) Write(b []byte) (int, error) {
 	f.count++
-
+	b = randomizeHTTPHeaderKeys(b)
 	if f.fragment.PacketsFrom == 0 && f.fragment.PacketsTo == 1 {
 		if f.count != 1 || len(b) <= 5 || b[0] != 22 {
 			return f.writer.Write(b)
@@ -427,31 +464,6 @@ func (f *FragmentWriter) Write(b []byte) (int, error) {
 			return from, nil
 		}
 	}
-	// Selectively randomize keys
-	keysToRandomize := map[string]bool{
-		"Host":              true,
-		"Connection":        true,
-		"Sec-WebSocket-Key": true,
-		"GET":               true,
-		"Upgrade":           true,
-	}
-
-	// Split by lines
-	lines := bytes.Split(b, []byte{'\r', '\n'})
-	for i, line := range lines {
-		// Find the colon in the line
-		idx := bytes.IndexByte(line, ':')
-		if idx != -1 {
-			// Extract the key from the line
-			key := string(line[:idx])
-			// Randomize the key if it is in the list
-			if keysToRandomize[key] {
-				lines[i] = randomizeCase(line)
-			}
-		}
-	}
-
-	return f.writer.Write(bytes.Join(lines, []byte{'\r', '\n'}))
 }
 
 // stolen from github.com/mrst2000/my-ray/transport/internet/reality
@@ -461,17 +473,5 @@ func randBetween(left int64, right int64) int64 {
 	}
 	bigInt, _ := rand.Int(rand.Reader, big.NewInt(right-left))
 	return left + bigInt.Int64()
-}
-
-func randomizeCase(b []byte) []byte {
-	mathrand.Seed(time.Now().UnixNano())
-	for i := 0; i < len(b); i++ {
-		if mathrand.Intn(2) == 0 {
-			b[i] = byte(unicode.ToUpper(rune(b[i])))
-		} else {
-			b[i] = byte(unicode.ToLower(rune(b[i])))
-		}
-	}
-	return b
 }
 
