@@ -370,7 +370,6 @@ type FragmentWriter struct {
 
 func (f *FragmentWriter) Write(b []byte) (int, error) {
 	f.count++
-	b = randomizeCase(b)
 
 	if f.fragment.PacketsFrom == 0 && f.fragment.PacketsTo == 1 {
 		if f.count != 1 || len(b) <= 5 || b[0] != 22 {
