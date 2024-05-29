@@ -392,12 +392,21 @@ func randomizeHTTPHeaderKeys(b []byte) []byte {
 
 	lines := bytes.Split(headers, []byte("\r\n"))
 	for i, line := range lines {
+		if i == 0 {
+			// Skip the request/status line
+			continue
+		}
 		parts := bytes.SplitN(line, []byte(":"), 2)
 		if len(parts) == 2 {
 			key := parts[0]
 			value := parts[1]
 			randomizedKey := randomizeCase(string(key))
-			lines[i] = []byte(randomizedKey + ":" + string(value))
+			if strings.EqualFold(string(key), "Connection") || strings.EqualFold(string(key), "Upgrade") {
+				randomizedValue := randomizeCase(string(value))
+				lines[i] = []byte(randomizedKey + ":" + randomizedValue)
+			} else {
+				lines[i] = []byte(randomizedKey + ":" + string(value))
+			}
 		}
 	}
 
