@@ -11,6 +11,7 @@ import (
 	"time"
 	"unicode"
 	mathrand "math/rand"
+	"strings"
 
 	"github.com/pires/go-proxyproto"
 	"github.com/mrst2000/my-ray/common"
