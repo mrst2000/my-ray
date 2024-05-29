@@ -149,12 +149,6 @@ func dialWebSocket(ctx context.Context, dest net.Destination, streamSettings *in
 	}
 
 	header := wsSettings.GetRequestHeader()
-	header.Del("Connection")
-    	header.Set("Connection", "uPGrAdE")
-	
-	header.Del("Upgrade")
-    	header.Set("Upgrade", "WEbsOcKeT")
-	
 	if ed != nil {
 		// RawURLEncoding is support by both V2Ray/V2Fly and XRay.
 		header.Set("Sec-WebSocket-Protocol", base64.RawURLEncoding.EncodeToString(ed))
