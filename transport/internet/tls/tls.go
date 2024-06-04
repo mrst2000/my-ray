@@ -6,6 +6,8 @@ import (
 	"crypto/tls"
 	"math/big"
 	"time"
+	"net"
+    	"syscall"
 
 	utls "github.com/refraction-networking/utls"
 	"github.com/mrst2000/my-ray/common/buf"
@@ -29,6 +31,38 @@ type Conn struct {
 }
 
 const tlsCloseTimeout = 250 * time.Millisecond
+
+
+// sendFakeTLSClientHello sends a fake TLS client hello with a low TTL to bypass firewalls.
+func sendFakeTLSClientHello(conn net.Conn, sni string) error {
+    config := &tls.Config{
+        ServerName: sni,
+    }
+    // Create a custom dialer to set low TTL
+    dialer := &net.Dialer{
+        Control: func(network, address string, c syscall.RawConn) error {
+            var err error
+            c.Control(func(fd uintptr) {
+                err = syscall.SetsockoptInt(int(fd), syscall.IPPROTO_IP, syscall.IP_TTL, 1)
+            })
+            return err
+        },
+    }
+    // Dial the connection with low TTL
+    lowTTLConn, err := dialer.Dial("tcp", conn.RemoteAddr().String())
+    if err != nil {
+        return err
+    }
+    defer lowTTLConn.Close()
+
+    // Perform the fake handshake
+    tlsConn := tls.Client(lowTTLConn, config)
+    err = tlsConn.Handshake()
+    if err != nil {
+        return err
+    }
+    return nil
+}
 
 func (c *Conn) Close() error {
 	timer := time.AfterFunc(tlsCloseTimeout, func() {
