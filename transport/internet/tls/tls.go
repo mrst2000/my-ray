@@ -6,7 +6,6 @@ import (
 	"crypto/tls"
 	"math/big"
 	"time"
-    	"syscall"
 
 	utls "github.com/refraction-networking/utls"
 	"github.com/mrst2000/my-ray/common/buf"
